@@ -1,18 +1,20 @@
 const eyeArt = `
-           _ . - = - . _
-       . "  \\  \\   /  /  " .
-     ,  \\                 /  .
-   . \\   _,.--~=~"~=~--.._   / .
-  ;  _.-"  / \\ !   ! / \\  "-._  .
- / ,"     / ,\` .---. \`, \\     ". \\
-/.'   \`~  |   /:::::\\   |  ~\`   '.\\
-\\\`.  \`~   |   \\:::::/   | ~\`  ~ .'/
- \\ \`.  \`~ \\ \`, \`~~~' ,\` /   ~\`.' /
-  .  "-._  \\ / !   ! \\ /  _.-"  .
-   ./    "=~~.._  _..~~=\`"    \\.
-     ,/         ""          \\,
-       . _/             \\_ . 
-          " - ./. .\\. - "
+                                ...',;;:cccccccc:;,..
+                            ..,;:cccc::::ccccclloooolc;'.
+                         .',;:::;;;;:loodxk0kkxxkxxdocccc;;'..
+                       .,;;;,,;:coxldKNWWWMMMMWNNWWNNKkdolcccc:,.
+                    .',;;,',;lxo:...dXWMMMMMMMMNkloOXNNNX0koc:coo;.
+                 ..,;:;,,,:ldl'   .kWMMMWXXNWMMMMXd..':d0XWWN0d:;lkd,
+               ..,;;,,'':loc.     lKMMMNl. .c0KNWNK:  ..';lx00X0l,cxo,.
+             ..''....'cooc.       c0NMMX;   .l0XWN0;       ,ddx00occl:.
+           ..'..  .':odc.         .x0KKKkolcld000xc.       .cxxxkkdl:,..
+         ..''..   ;dxolc;'         .lxx000kkxx00kc.      .;looolllol:'..
+        ..'..    .':lloolc:,..       'lxkkkkk0kd,   ..':clc:::;,,;:;,'..
+        ......   ....',;;;:ccc::;;,''',:loddol:,,;:clllolc:;;,'........
+            .     ....'''',,,;;:cccccclllloooollllccc:c:::;,'..
+                    .......'',,,,,,,,;;::::ccccc::::;;;,,''...
+                      ...............''',,,;;;,,''''''......
+                           ............................
 `;
 
 const story = [
@@ -43,12 +45,21 @@ enterScreen.addEventListener('click', () => {
     bgMusic.volume = 0.3;
     bgMusic.play();
     
-    // Hide enter screen and show content
-    enterScreen.style.display = 'none';
-    mainContent.style.display = 'block';
+    // Fade out enter screen
+    enterScreen.style.opacity = '0';
     
-    // Start story
-    setTimeout(typeStory, 1000);
+    setTimeout(() => {
+        enterScreen.style.display = 'none';
+        mainContent.style.display = 'block';
+        
+        // Fade in main content
+        setTimeout(() => {
+            mainContent.style.opacity = '1';
+        }, 50);
+        
+        // Start story
+        setTimeout(typeStory, 1000);
+    }, 500);
 });
 
 document.getElementById('eye').textContent = eyeArt;
@@ -84,15 +95,24 @@ const overlay = document.getElementById('overlay');
 const closeBtn = document.getElementById('closeBtn');
 
 hiddenLink.addEventListener('click', () => {
-    overlay.classList.add('active');
+    overlay.style.display = 'flex';
+    setTimeout(() => {
+        overlay.classList.add('active');
+    }, 10);
 });
 
 closeBtn.addEventListener('click', () => {
     overlay.classList.remove('active');
+    setTimeout(() => {
+        overlay.style.display = 'none';
+    }, 400);
 });
 
 overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
         overlay.classList.remove('active');
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 400);
     }
 });
