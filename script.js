@@ -33,18 +33,28 @@ const story = [
     "the server is still running.",
 ];
 
+// Enter screen functionality
+const enterScreen = document.getElementById('enterScreen');
+const mainContent = document.getElementById('mainContent');
+const bgMusic = document.getElementById('bgMusic');
+
+enterScreen.addEventListener('click', () => {
+    // Start music
+    bgMusic.volume = 0.3;
+    bgMusic.play();
+    
+    // Hide enter screen and show content
+    enterScreen.style.display = 'none';
+    mainContent.style.display = 'block';
+    
+    // Start story
+    setTimeout(typeStory, 1000);
+});
+
 document.getElementById('eye').textContent = eyeArt;
 
 const contentEl = document.getElementById('content');
 let lineIndex = 0;
-
-// Start music
-const bgMusic = document.getElementById('bgMusic');
-// Unmute after a tiny delay to bypass autoplay restrictions
-setTimeout(() => {
-    bgMusic.muted = false;
-    bgMusic.volume = 0.3;
-}, 100);
 
 function typeStory() {
     if (lineIndex < story.length) {
@@ -67,8 +77,6 @@ function typeStory() {
         }, 2000);
     }
 }
-
-setTimeout(typeStory, 1000);
 
 // Hidden link functionality
 const hiddenLink = document.getElementById('hiddenLink');
