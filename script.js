@@ -40,13 +40,11 @@ let lineIndex = 0;
 
 // Start music
 const bgMusic = document.getElementById('bgMusic');
-bgMusic.volume = 0.3;
-bgMusic.play().catch(() => {
-    // If autoplay is blocked, play on first user interaction
-    document.addEventListener('click', () => {
-        bgMusic.play();
-    }, { once: true });
-});
+// Unmute after a tiny delay to bypass autoplay restrictions
+setTimeout(() => {
+    bgMusic.muted = false;
+    bgMusic.volume = 0.3;
+}, 100);
 
 function typeStory() {
     if (lineIndex < story.length) {
