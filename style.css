@@ -58,6 +58,33 @@ body {
     opacity: 0.7;
 }
 
+.enter-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.enter-text {
+    color: #4a4a4a;
+    font-size: 16px;
+    border: 1px solid #3a3a3a;
+    padding: 15px 30px;
+    transition: all 0.3s;
+}
+
+.enter-text:hover {
+    color: #6a6a6a;
+    border-color: #5a5a5a;
+}
+
 .hidden-link {
     position: fixed;
     bottom: 40px;
