@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="enter-screen" id="enterScreen">
+        <div class="enter-text">click to enter</div>
+    </div>
+    
+    <div class="container" id="mainContent" style="display: none;">
         <pre class="ascii-art" id="eye"></pre>
         
         <div class="date">march 16, 2022 - 03:47 am</div>
@@ -22,7 +26,7 @@
         
         <div class="hidden-link" id="hiddenLink">[0]</div>
         
-        <audio id="bgMusic" loop autoplay muted>
+        <audio id="bgMusic" loop>
             <source src="schizophrenia.mp3" type="audio/mpeg">
         </audio>
         
