@@ -1,15 +1,20 @@
 const eyeArt = `
-             ..,,;;;;;;,,,,
-       .,;'';;,..,;;;,,,,,.''';;,..
-    ,,''                    '';;;;,;''
-   ;'    ,;@@;'  ,@@;, @@, ';;;@@;,;';.
-  ''  ,;@@@@@'  ;@@@@; ''    ;;@@@@@;;;;
-     ;;@@@@@;    '''     .,,;;;@@@@@@@;;;
-    ;;@@@@@@;           , ';;;@@@@@@@@;;;.
-     '';@@@@@,.  ,   .   ',;;;@@@@@@;;;;;;
-        .   '';;;;;;;;;,;;;;@@@@@;;' ,.:;'
-          ''..,,     ''''    '  .,;'
-               ''''''::''''''''
+                                ...',;;:cccccccc:;,..
+                            ..,;:cccc::::ccccclloooolc;'.
+                         .',;:::;;;;:loodxk0kkxxkxxdocccc;;'..
+                       .,;;;,,;:coxldKNWWWMMMMWNNWWNNKkdolcccc:,.
+                    .',;;,',;lxo:...dXWMMMMMMMMNkloOXNNNX0koc:coo;.
+                 ..,;:;,,,:ldl'   .kWMMMWXXNWMMMMXd..':d0XWWN0d:;lkd,
+               ..,;;,,'':loc.     lKMMMNl. .c0KNWNK:  ..';lx00X0l,cxo,.
+             ..''....'cooc.       c0NMMX;   .l0XWN0;       ,ddx00occl:.
+           ..'..  .':odc.         .x0KKKkolcld000xc.       .cxxxkkdl:,..
+         ..''..   ;dxolc;'         .lxx000kkxx00kc.      .;looolllol:'..
+        ..'..    .':lloolc:,..       'lxkkkkk0kd,   ..':clc:::;,,;:;,'..
+        ......   ....',;;;:ccc::;;,''',:loddol:,,;:clllolc:;;,'........
+            .     ....'''',,,;;:cccccclllloooollllccc:c:::;,'..
+                    .......'',,,,,,,,;;::::ccccc::::;;;,,''...
+                      ...............''',,,;;;,,''''''......
+                           ............................
 `;
 
 const story = [
@@ -30,43 +35,29 @@ const story = [
     "the server is still running.",
 ];
 
-// Enter screen functionality
 const enterScreen = document.getElementById('enterScreen');
 const mainContent = document.getElementById('mainContent');
 const bgMusic = document.getElementById('bgMusic');
 
 enterScreen.addEventListener('click', () => {
-    // Start music
     bgMusic.volume = 0.3;
     bgMusic.play();
     
-    // Fade out enter screen
     enterScreen.style.opacity = '0';
     
     setTimeout(() => {
         enterScreen.style.display = 'none';
         mainContent.style.display = 'block';
         
-        // Fade in main content
         setTimeout(() => {
             mainContent.style.opacity = '1';
         }, 50);
         
-        // Start story
         setTimeout(typeStory, 1000);
     }, 500);
 });
 
 document.getElementById('eye').textContent = eyeArt;
-
-// Blinking animation
-const eyeElement = document.getElementById('eye');
-setInterval(() => {
-    eyeElement.style.opacity = '0.1';
-    setTimeout(() => {
-        eyeElement.style.opacity = '0.8';
-    }, 100);
-}, 5000);
 
 const contentEl = document.getElementById('content');
 let lineIndex = 0;
@@ -86,14 +77,12 @@ function typeStory() {
         lineIndex++;
         setTimeout(typeStory, 1800);
     } else {
-        // Show button when story is complete
         setTimeout(() => {
             hiddenLink.classList.add('visible');
         }, 2000);
     }
 }
 
-// Hidden link functionality
 const hiddenLink = document.getElementById('hiddenLink');
 const overlay = document.getElementById('overlay');
 const closeBtn = document.getElementById('closeBtn');
