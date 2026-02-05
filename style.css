@@ -10,10 +10,6 @@ body {
     font-family: 'Courier New', 'Consolas', monospace;
     overflow-y: auto;
     min-height: 100vh;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
 }
 
 .container {
@@ -98,7 +94,7 @@ body {
 
 .hidden-link {
     position: fixed;
-    bottom: 40px;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
     color: #5a5a5a;
